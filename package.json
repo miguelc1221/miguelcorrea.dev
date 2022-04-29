@@ -4,7 +4,7 @@
   "description": "Miguel's personal website",
   "private": true,
   "engines": {
-    "node": "16.13.2"
+    "node": "14.19.1"
   },
   "scripts": {
     "dev": "next dev",
