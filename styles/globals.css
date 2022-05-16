@@ -3,8 +3,32 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: Open Sans, system-ui, sans-serif;
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-serif;
+    @apply font-semibold
+  }
+
+  .underlined {
+    position: relative;
+  }
+
+  .underlined:after {
+    content: '';
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    display: block;
+    position: absolute;
+  }
+
+  .underlined:hover:after, 
+  .underlined:focus:after, 
+  .active.underlined:after {
+    @apply bg-inchworm;
+    transform: scaleX(1);
   }
 }
-
