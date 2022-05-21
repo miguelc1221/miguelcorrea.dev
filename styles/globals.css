@@ -8,6 +8,32 @@
     @apply font-semibold
   }
 
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-[1100px] mx-auto px-8;
+  }
+
+  .profileImg {
+    @apply h-[300px] w-[300px] -mb-[325px] border-8
+  }
+  .profileImgSm {
+    @apply h-[150px] w-[150px] -mb-[125px] rounded-full border-white border-4 border-solid relative
+  }
+
+  .profileImg > span > img {
+    @apply h-[300px] w-[300px] rounded-full
+  }
+
+  .profileImgSm > span > img {
+    @apply h-[150px] w-[150px] rounded-full
+  }
+
+  .heroContainer {
+    @apply w-full items-center justify-between container relative text-left flex-row gap-0
+  }
+
   .underlined {
     position: relative;
   }
@@ -28,7 +54,39 @@
   .underlined:hover:after, 
   .underlined:focus:after, 
   .active.underlined:after {
-    @apply bg-inchworm;
+    @apply bg-primary;
     transform: scaleX(1);
   }
+
+  .active:after {
+    @apply bg-primary;
+    transform: scaleX(1);
+  }
+
+  .skewed {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: skewY(-8deg);
+    transform-origin: top left;
+  }
+
+  .clipped-background {
+    clip-path: polygon(140% 0, 0 0, 0 100%);
+    background: #fff;
+    height: 475px;
+  }
+
+  .gridy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* column-gap: 10px; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+  }
+
 }
+

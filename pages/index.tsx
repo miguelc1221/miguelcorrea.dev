@@ -1,39 +1,62 @@
+import { useRef, useEffect } from 'react'
+import { useScrollPosition } from '../hooks/useScrollPosition'
+import { useApp } from '../contexts/AppContext'
 import Head from 'next/head'
 import Image from 'next/image'
-import me from '../assets/me.jpg'
+import ProfileImg from '../assets/me.jpg'
+import WcGQLImg from '../assets/wc-gql.png'
 
 export default function Home(): JSX.Element {
+  const { dispatch } = useApp()
+  const scrollPosition = useScrollPosition()
+  const sectionWrapperRef = useRef<HTMLDivElement>(null)
+  const firstSectionOffsetTop = sectionWrapperRef.current?.offsetTop
+  const shouldChange =
+    firstSectionOffsetTop && scrollPosition >= firstSectionOffsetTop - 50
+
+  useEffect(() => {
+    if (shouldChange) {
+      console.log('hooo')
+      dispatch({ type: 'SET_SHOULD_CHANGE_COLOR' })
+    } else {
+      console.log('heyyy')
+      dispatch({ type: 'RESET_COLOR' })
+    }
+  }, [shouldChange, dispatch])
+
   return (
     <>
       <Head>
         <title>Miguel Correa</title>
         <meta name="description" content="Miguel Correa's site" />
       </Head>
-      <div className="flex w-full items-center justify-between">
-        <div className="mt-10 mb-10 leading-loose">
-          <p>Hi There,</p>
-          <h1 className="text-7xl">I am Miguel Correa</h1>
-          <p>I am Front-end developer...I think</p>
-          <button className="mt-5 px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-none shadow-sm">
-            Work
-          </button>
-        </div>
-        <div className="h-[200px] w-[200px] rounded-full border-4 border-white border-solid relative">
-          <Image
-            className="rounded-full"
-            src={me}
-            alt="Picture of the author"
-            width={200}
-            height={200}
-          />
+      <div className="-mt-[63px] pb-10 pt-[103px] w-full bg-white">
+        <div className="flex flex-col text-center items-center gap-6 md.5:heroContainer">
+          <div className=" text-black ">
+            <p>Hi There,</p>
+            <h1 className="text-7xl md.5:text-9xl">
+              I am <span className="text-primary">Miguel</span>
+            </h1>
+            <p>I am Front-end developer...I think</p>
+            <button className="mt-5 px-4 py-2 text-sm bg-pinkFlash text-white shadow-sm hover:bg-pinkFlash-2">
+              See my work
+            </button>
+          </div>
+          <div className="profileImgSm md.5:profileImg">
+            <Image src={ProfileImg} alt="Picture of the author" />
+          </div>
         </div>
       </div>
-      <div>
-        <div>
-          <h2 className="text-4xl underline decoration-inchworm underline-offset-4">
-            Who Am I?
+
+      <div
+        className="container pt-24 flex flex-col gap-10"
+        ref={sectionWrapperRef}
+      >
+        <section>
+          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5">
+            Who am i?
           </h2>
-          <p className="mt-5">
+          <p>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
             making it over 2000 years old. Richard McClintock, a Latin professor
@@ -47,13 +70,29 @@ export default function Home(): JSX.Element {
             Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
             amet..", comes from a line in section 1.10.32.
           </p>
-        </div>
+        </section>
 
-        <div className="mt-8">
-          <h2 className="text-4xl underline decoration-inchworm underline-offset-4">
+        <section>
+          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5">
             Projects
           </h2>
-          <p className="mt-5">
+          <div className="gridy">
+            <Image
+              src={WcGQLImg}
+              alt="Picture of the author"
+              placeholder="blur"
+              layout="responsive"
+              className="rounded-lg "
+            />
+            <Image
+              src={WcGQLImg}
+              alt="Picture of the author"
+              placeholder="blur"
+              layout="responsive"
+              className="rounded-lg "
+            />
+          </div>
+          <p>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
             making it over 2000 years old. Richard McClintock, a Latin professor
@@ -67,10 +106,8 @@ export default function Home(): JSX.Element {
             Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
             amet..", comes from a line in section 1.10.32.
           </p>
-        </div>
+        </section>
       </div>
     </>
   )
 }
-
-// 646C79

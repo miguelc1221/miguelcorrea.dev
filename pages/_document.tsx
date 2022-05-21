@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html lang="en" className="bg-gunmetal">
+      <Html lang="en" className="bg-secondary text-lg font-light">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
