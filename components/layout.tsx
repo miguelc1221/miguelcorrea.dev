@@ -1,13 +1,14 @@
 import React from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useApp } from '../contexts/AppContext'
+import { Footer } from './footer'
+import { NavItem } from './navItem'
 
-export default function Layout({
+export const Layout = ({
   children,
 }: {
   children: React.ReactNode
-}): JSX.Element {
+}): JSX.Element => {
   const { state } = useApp()
   const router = useRouter()
   const shouldChangeColor = state.shouldChangeColor || router.route !== '/'
@@ -27,32 +28,25 @@ export default function Layout({
           >
             <ul className="flex items-center">
               <li className="text-4xl mr-10 font-serif font-semibold">
-                <Link href="/">
-                  <a>
-                    M<span className="text-primary">i</span>gz
-                  </a>
-                </Link>
+                <NavItem href="/" hasUnderline={false}>
+                  M<span className="text-primary">i</span>gz
+                </NavItem>
               </li>
               <li>
-                <Link href="/blog">
-                  <a
-                    className={`${
-                      router.pathname == '/blog' ? 'active' : ''
-                    } underlined`}
-                  >
-                    Blog
-                  </a>
-                </Link>
+                <NavItem href="/blog" activeClassName="activeNav">
+                  Blog
+                </NavItem>
               </li>
             </ul>
           </div>
         </nav>
       </header>
 
-      <main className="h-screen min-h-screen flex justify-start items-start flex-col text-white pt-[63px]">
+      <main className="flex justify-start items-start flex-col text-white pt-[63px] pb-10">
         {children}
       </main>
-      {/* © 2020-present Miguel Correa. All Rights Reserved. */}
+
+      <Footer />
     </>
   )
 }

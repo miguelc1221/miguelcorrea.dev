@@ -1,10 +1,13 @@
 import { useRef, useEffect } from 'react'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { useApp } from '../contexts/AppContext'
+import { ProjectItem } from '../components/projectItem'
 import Head from 'next/head'
 import Image from 'next/image'
-import ProfileImg from '../assets/me.jpg'
-import WcGQLImg from '../assets/wc-gql.png'
+import ProfileImg from '../public/images/me.jpg'
+import WcGQLImg from '../public/images/wc-gql.png'
+import CbCli from '../public/images/cbcli.png'
+import Link from 'next/link'
 
 export default function Home(): JSX.Element {
   const { dispatch } = useApp()
@@ -16,10 +19,8 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     if (shouldChange) {
-      console.log('hooo')
       dispatch({ type: 'SET_SHOULD_CHANGE_COLOR' })
     } else {
-      console.log('heyyy')
       dispatch({ type: 'RESET_COLOR' })
     }
   }, [shouldChange, dispatch])
@@ -33,14 +34,16 @@ export default function Home(): JSX.Element {
       <div className="-mt-[63px] pb-10 pt-[103px] w-full bg-white">
         <div className="flex flex-col text-center items-center gap-6 md.5:heroContainer">
           <div className=" text-black ">
-            <p>Hi There,</p>
+            <p>Hi there,</p>
             <h1 className="text-7xl md.5:text-9xl">
               I am <span className="text-primary">Miguel</span>
             </h1>
-            <p>I am Front-end developer...I think</p>
-            <button className="mt-5 px-4 py-2 text-sm bg-pinkFlash text-white shadow-sm hover:bg-pinkFlash-2">
-              See my work
-            </button>
+            <p>Frontend developer and aspiring designer</p>
+            <Link href="#projects" passHref>
+              <button className="mt-5 px-4 py-2 text-sm bg-pinkFlash text-white shadow-sm hover:bg-pinkFlash-2">
+                See my work
+              </button>
+            </Link>
           </div>
           <div className="profileImgSm md.5:profileImg">
             <Image src={ProfileImg} alt="Picture of the author" />
@@ -53,59 +56,65 @@ export default function Home(): JSX.Element {
         ref={sectionWrapperRef}
       >
         <section>
-          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5">
+          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5 ">
             Who am i?
           </h2>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
+          <p className="indent-4 text-slate-200">
+            Hi, my name is Miguel Correa and I am a frontend developer currently
+            working remotely from somewhere in the United States. In 2015 I
+            decided to learn how to code after graduating with a degree that I
+            had no plans on using (B.A. Physical Education...😂). That year I
+            fell in love with coding and taught myself enough to help me land my
+            first job at a startup in the California Bay Area. I have since
+            worked for companies such as{' '}
+            <a
+              href="https://www.hellofresh.com/"
+              className="text-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              HelloFresh
+            </a>
+            (America&apos;s #1 meal kit) and{' '}
+            <a
+              href="https://www.workday.com/"
+              className="text-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Workday
+            </a>{' '}
+            (one of the leading provider of enterprise cloud applications for
+            finance, HR, and planning).
+          </p>
+
+          <p className="indent-4 text-slate-200 mb-4">
+            On my spare time I am an avid collector of sixth scale comic
+            figures, casual gamer and basketball fanatic. I also enjoy tinkering
+            on side projects for the purpose of trying out new frameworks as
+            well as improving my skills. Currently I have a big interest in
+            design and am working on improving this skill set.
           </p>
         </section>
 
-        <section>
+        <section id="projects">
           <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5">
             Projects
           </h2>
-          <div className="gridy">
-            <Image
+          <div className="projectGrid">
+            <ProjectItem
+              href="https://warcraft-gql.com/"
+              title="Warcraft-GQL"
+              subTitle="GraphQL API for World of Warcraft"
               src={WcGQLImg}
-              alt="Picture of the author"
-              placeholder="blur"
-              layout="responsive"
-              className="rounded-lg "
             />
-            <Image
-              src={WcGQLImg}
-              alt="Picture of the author"
-              placeholder="blur"
-              layout="responsive"
-              className="rounded-lg "
+            <ProjectItem
+              href="https://github.com/miguelc1221/comicbook-cli"
+              title="ComicBook CLI"
+              subTitle="A CLI tool to display the latest comic book releases."
+              src={CbCli}
             />
           </div>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
-          </p>
         </section>
       </div>
     </>

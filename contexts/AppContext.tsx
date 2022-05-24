@@ -37,7 +37,7 @@ function AppProvider({ children }: AppProviderProps): JSX.Element {
 function useApp(): { state: State; dispatch: Dispatch } {
   const context = React.useContext(AppStateContext)
   if (context === undefined) {
-    throw new Error('useCount must be used within a CountProvider')
+    throw new Error('useApp must be used within a AppProvider')
   }
   return context
 }
