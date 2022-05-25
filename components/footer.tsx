@@ -7,6 +7,7 @@ export const Footer = (): JSX.Element => {
         </p>
         <div className="flex flex-wrap gap-2">
           <a
+            aria-label="Twitter"
             href="https://twitter.com/Miguelc1221"
             target="_blank"
             rel="noreferrer"
@@ -23,6 +24,7 @@ export const Footer = (): JSX.Element => {
           </a>
 
           <a
+            aria-label="Linkedin"
             href="https://www.linkedin.com/in/mc1221/"
             target="_blank"
             rel="noreferrer"
@@ -41,6 +43,7 @@ export const Footer = (): JSX.Element => {
           </a>
 
           <a
+            aria-label="Github"
             href="https://github.com/miguelc1221"
             target="_blank"
             rel="noreferrer"

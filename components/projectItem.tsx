@@ -15,15 +15,16 @@ export const ProjectItem = ({
 }: ProjectItemType): JSX.Element => {
   return (
     <div className="flex gap-4 flex-col text-center text-slate-200 relative">
-      <Image
-        placeholder="blur"
-        layout="responsive"
-        className="rounded-lg"
-        width={16}
-        height={10}
-        alt=""
-        {...props}
-      />
+      <div>
+        <Image
+          layout="responsive"
+          className="rounded-lg"
+          width={16}
+          height={10}
+          alt=""
+          {...props}
+        />
+      </div>
       <div>
         <a
           href={href}

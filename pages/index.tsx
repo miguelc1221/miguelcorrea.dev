@@ -3,7 +3,6 @@ import { useScrollPosition } from '../hooks/useScrollPosition'
 import { useApp } from '../contexts/AppContext'
 import { ProjectItem } from '../components/projectItem'
 import { Button } from '../components/button'
-import Head from 'next/head'
 import Image from 'next/image'
 import ProfileImg from '../public/images/me.jpg'
 import WcGQLImg from '../public/images/wc-gql.png'
@@ -28,10 +27,6 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-      <Head>
-        <title>Miguel Correa</title>
-        <meta name="description" content="Miguel Correa's site" />
-      </Head>
       <div className="-mt-[63px] pb-10 pt-[103px] w-full bg-white">
         <div className="flex flex-col text-center items-center gap-6 md.5:heroContainer">
           <div className=" text-black ">
