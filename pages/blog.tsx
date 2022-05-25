@@ -8,7 +8,9 @@ export default function Blog(): JSX.Element {
         <meta name="description" content="Miguel Correa's site" />
       </Head>
 
-      <h1>Blog</h1>
+      <div className="container">
+        <h1 className="text-4xl">Coming soon...</h1>
+      </div>
     </>
   )
 }

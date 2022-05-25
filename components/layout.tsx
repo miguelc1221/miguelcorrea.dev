@@ -42,7 +42,7 @@ export const Layout = ({
         </nav>
       </header>
 
-      <main className="flex justify-start items-start flex-col text-white pt-[63px] pb-10">
+      <main className="text-white pt-[63px] pb-10 min-h-[calc(100vh_-_87px)]">
         {children}
       </main>
 

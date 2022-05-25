@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { useApp } from '../contexts/AppContext'
 import { ProjectItem } from '../components/projectItem'
+import { Button } from '../components/button'
 import Head from 'next/head'
 import Image from 'next/image'
 import ProfileImg from '../public/images/me.jpg'
@@ -38,11 +39,9 @@ export default function Home(): JSX.Element {
             <h1 className="text-7xl md.5:text-9xl">
               I am <span className="text-primary">Miguel</span>
             </h1>
-            <p>Frontend developer and aspiring designer</p>
+            <p className="mb-5">Frontend developer and aspiring designer</p>
             <Link href="#projects" passHref>
-              <button className="mt-5 px-4 py-2 text-sm bg-pinkFlash text-white shadow-sm hover:bg-pinkFlash-2">
-                See my work
-              </button>
+              <Button>See my work</Button>
             </Link>
           </div>
           <div className="profileImgSm md.5:profileImg">
@@ -69,7 +68,7 @@ export default function Home(): JSX.Element {
             worked for companies such as{' '}
             <a
               href="https://www.hellofresh.com/"
-              className="text-primary"
+              className="text-white font-semibold"
               target="_blank"
               rel="noreferrer"
             >
@@ -78,7 +77,7 @@ export default function Home(): JSX.Element {
             (America&apos;s #1 meal kit) and{' '}
             <a
               href="https://www.workday.com/"
-              className="text-primary"
+              className="text-white font-semibold"
               target="_blank"
               rel="noreferrer"
             >
@@ -95,6 +94,15 @@ export default function Home(): JSX.Element {
             well as improving my skills. Currently I have a big interest in
             design and am working on improving this skill set.
           </p>
+          <div className="text-center">
+            <a
+              href={'/miguel_correa_resume.pdf'}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Button>View my resume</Button>
+            </a>
+          </div>
         </section>
 
         <section id="projects">
@@ -119,4 +127,14 @@ export default function Home(): JSX.Element {
       </div>
     </>
   )
+}
+
+{
+  /* <Link href="#projects" passHref>
+<button className="relative px-6 py-3 font-bold text-black group max-w-fit">
+  <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-red-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+  <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
+  <span className="relative">See my work</span>
+</button>
+</Link> */
 }

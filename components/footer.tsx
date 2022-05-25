@@ -3,7 +3,7 @@ export const Footer = (): JSX.Element => {
     <footer>
       <div className="container flex items-center justify-between pb-6 pt-6">
         <p className="text-slate-200 text-sm">
-          © 2022 Miguel Correa. All Rights Reserved.
+          {`© ${new Date().getFullYear()} Miguel Correa. All Rights Reserved.`}
         </p>
         <div className="flex flex-wrap gap-2">
           <a

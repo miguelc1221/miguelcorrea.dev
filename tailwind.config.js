@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#01B0D3',
+        primary: '#01949A',
         secondary: '#393947',
-        'pinkFlash': '#EF4657',
-        'pinkFlash-2': '#D73F4E',
+        'amaranth': '#DB1F48',
+        'amaranth-2': '#C51B40',
       },
       fontFamily: {
         'sans': ['Josefin Sans', ...defaultTheme.fontFamily.sans],
