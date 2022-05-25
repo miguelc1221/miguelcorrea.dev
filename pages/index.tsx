@@ -39,7 +39,7 @@ export default function Home(): JSX.Element {
             <h1 className="text-7xl md.5:text-9xl">
               I am <span className="text-primary">Miguel</span>
             </h1>
-            <p className="mb-5">Frontend developer and aspiring designer</p>
+            <p className="mb-5">Front-end developer and aspiring designer</p>
             <Link href="#projects" passHref>
               <Button>See my work</Button>
             </Link>
@@ -59,13 +59,13 @@ export default function Home(): JSX.Element {
             Who am i?
           </h2>
           <p className="indent-4 text-slate-200">
-            Hi, my name is Miguel Correa and I am a frontend developer currently
-            working remotely from somewhere in the United States. In 2015 I
-            decided to learn how to code after graduating with a degree that I
-            had no plans on using (B.A. Physical Education...😂). That year I
-            fell in love with coding and taught myself enough to help me land my
-            first job at a startup in the California Bay Area. I have since
-            worked for companies such as{' '}
+            Hi, my name is Miguel Correa and I am a front-end developer
+            currently working remotely from somewhere in the United States. In
+            2015 I decided to learn how to code after graduating with a degree
+            that I had no plans on using (B.A. Physical Education...😂). That
+            year I fell in love with coding and taught myself enough to help me
+            land my first job at a startup in the California Bay Area. I have
+            since worked for companies such as{' '}
             <a
               href="https://www.hellofresh.com/"
               className="text-white font-semibold"
