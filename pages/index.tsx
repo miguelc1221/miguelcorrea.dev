@@ -1,6 +1,4 @@
-import { useRef, useEffect } from 'react'
-import { useScrollPosition } from '../hooks/useScrollPosition'
-import { useApp } from '../contexts/AppContext'
+import { forwardRef } from 'react'
 import { ProjectItem } from '../components/projectItem'
 import { Button } from '../components/button'
 import Image from 'next/image'
@@ -9,25 +7,10 @@ import WcGQLImg from '../public/images/wc-gql.png'
 import CbCli from '../public/images/cbcli.png'
 import Link from 'next/link'
 
-export default function Home(): JSX.Element {
-  const { dispatch } = useApp()
-  const scrollPosition = useScrollPosition()
-  const sectionWrapperRef = useRef<HTMLDivElement>(null)
-  const firstSectionOffsetTop = sectionWrapperRef.current?.offsetTop
-  const shouldChange =
-    firstSectionOffsetTop && scrollPosition >= firstSectionOffsetTop - 50
-
-  useEffect(() => {
-    if (shouldChange) {
-      dispatch({ type: 'SET_SHOULD_CHANGE_COLOR' })
-    } else {
-      dispatch({ type: 'RESET_COLOR' })
-    }
-  }, [shouldChange, dispatch])
-
+export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
   return (
     <>
-      <div className="-mt-[63px] pb-10 pt-[103px] w-full bg-white">
+      <div className="-mt-[63px] pb-10 pt-[103px] w-full heroBackground">
         <div className="flex flex-col text-center items-center gap-6 md.5:heroContainer">
           <div className=" text-black ">
             <p>Hi there,</p>
@@ -45,10 +28,7 @@ export default function Home(): JSX.Element {
         </div>
       </div>
 
-      <div
-        className="container pt-24 flex flex-col gap-10"
-        ref={sectionWrapperRef}
-      >
+      <div className="container pt-24 flex flex-col gap-10" ref={ref}>
         <section>
           <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5 ">
             Who am i?
@@ -122,4 +102,4 @@ export default function Home(): JSX.Element {
       </div>
     </>
   )
-}
+})

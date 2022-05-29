@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useRef, Children, isValidElement, cloneElement } from 'react'
 import { useRouter } from 'next/router'
-import { useApp } from '../contexts/AppContext'
 import { Footer } from './footer'
 import { NavItem } from './navItem'
+import { useScrollPosition } from '../hooks/useScrollPosition'
+import HomePage from '../pages/index'
 
 export const Layout = ({
   children,
 }: {
   children: React.ReactNode
 }): JSX.Element => {
-  const { state } = useApp()
   const router = useRouter()
-  const shouldChangeColor = state.shouldChangeColor || router.route !== '/'
+  const scrollPosition = useScrollPosition()
+  const sectionWrapperRef = useRef<HTMLDivElement>(null)
+  const firstSectionOffsetTop = sectionWrapperRef.current?.offsetTop
+  const passedOffset =
+    firstSectionOffsetTop && scrollPosition >= firstSectionOffsetTop - 50
+  const shouldChangeColor = passedOffset || router.route !== '/'
 
   return (
     <>
@@ -19,7 +24,9 @@ export const Layout = ({
         <nav
           className={`${
             shouldChangeColor ? 'bg-secondary/5' : 'bg-white/5'
-          } duration-300 ease-in-out mb-10 flex justify-center fixed backdrop-blur-md w-full z-10`}
+          } duration-200 ease-in-out mb-10 flex justify-center fixed ${
+            scrollPosition > 0 ? 'backdrop-blur-md' : 'bg-transparent'
+          }  w-full z-10`}
         >
           <div
             className={`${
@@ -43,7 +50,16 @@ export const Layout = ({
       </header>
 
       <main className="text-white pt-[63px] pb-10 min-h-[calc(100vh_-_87px)]">
-        {children}
+        {Children.map(children, (child) => {
+          if (isValidElement(child)) {
+            if (child.type === HomePage) {
+              return cloneElement(child, { ref: sectionWrapperRef })
+            }
+
+            return child
+          }
+          return child
+        })}
       </main>
 
       <Footer />
