@@ -20,10 +20,12 @@
   }
 
   .profileImg {
-    @apply h-[300px] w-[300px] -mb-[325px] border-8
+    @apply h-[300px] w-[300px] -mb-[366px] p-2;
   }
+  
   .profileImgSm {
-    @apply h-[150px] w-[150px] -mb-[125px] rounded-full border-white border-4 border-solid relative
+    @apply h-[160px] w-[160px] -mb-[126px] rounded-full flex p-1;
+    background: linear-gradient( 0, white, white 49%, white 49%, white 51%, transparent 51% ); 
   }
 
   .profileImg > span > img {
@@ -31,7 +33,7 @@
   }
 
   .profileImgSm > span > img {
-    @apply h-[150px] w-[150px] rounded-full
+    @apply h-[160px] w-[160px] rounded-full
   }
 
   .heroContainer {
