@@ -1,7 +1,7 @@
 export const Footer = (): JSX.Element => {
   return (
     <footer>
-      <div className="container flex items-center justify-between pb-6 pt-6">
+      <div className="container flex flex-col-reverse gap-5 md:flex-row md:gap-0 items-center justify-between pb-6 pt-6">
         <p className="text-slate-800 dark:text-slate-200 text-sm">
           {`© ${new Date().getFullYear()} Miguel Correa. All Rights Reserved.`}
         </p>
