@@ -12,7 +12,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
     <>
       <div className="-mt-[63px] pb-10 pt-[103px] w-full heroBackground">
         <div className="flex flex-col text-center items-center gap-6 md.5:heroContainer">
-          <div className=" text-black ">
+          <div className="text-black">
             <p>Hi there,</p>
             <h1 className="text-7xl md.5:text-9xl">
               I am <span className="text-primary">Miguel</span>
@@ -30,10 +30,10 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
 
       <div className="container pt-24 flex flex-col gap-10" ref={ref}>
         <section>
-          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5 ">
+          <h2 className="text-black dark:text-white text-4xl underline decoration-primary underline-offset-4 mb-5 ">
             Who am i?
           </h2>
-          <p className="indent-4 text-slate-200">
+          <p className="indent-4 text-slate-800 dark:text-slate-200">
             Hi, my name is Miguel Correa and I am a front-end developer
             currently working remotely from somewhere in the United States. In
             2015 I decided to learn how to code after graduating with a degree
@@ -43,7 +43,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
             since worked for companies such as{' '}
             <a
               href="https://www.hellofresh.com/"
-              className="text-white font-semibold"
+              className="text-black dark:text-white font-semibold"
               target="_blank"
               rel="noreferrer"
             >
@@ -52,7 +52,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
             (America&apos;s #1 meal kit) and{' '}
             <a
               href="https://www.workday.com/"
-              className="text-white font-semibold"
+              className="text-black dark:text-white font-semibold"
               target="_blank"
               rel="noreferrer"
             >
@@ -62,7 +62,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
             finance, HR, and planning).
           </p>
 
-          <p className="indent-4 text-slate-200 mb-4">
+          <p className="indent-4 text-slate-800 dark:text-slate-200 mb-4">
             On my spare time I am an avid collector of sixth scale comic
             figures, casual gamer and basketball fanatic. I also enjoy tinkering
             on side projects for the purpose of trying out new frameworks as
@@ -81,7 +81,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
         </section>
 
         <section id="projects">
-          <h2 className="text-4xl underline decoration-primary underline-offset-4 mb-5">
+          <h2 className="text-black dark:text-white text-4xl underline decoration-primary underline-offset-4 mb-5">
             Projects
           </h2>
           <div className="projectGrid">

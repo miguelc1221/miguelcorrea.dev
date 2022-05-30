@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { Footer } from './footer'
 import { NavItem } from './navItem'
 import { useScrollPosition } from '../hooks/useScrollPosition'
+import { DarkModeButton } from './darkModeButton'
 import HomePage from '../pages/index'
 
 export const Layout = ({
@@ -23,17 +24,19 @@ export const Layout = ({
       <header>
         <nav
           className={`${
-            shouldChangeColor ? 'bg-secondary/5' : 'bg-white/5'
-          } duration-200 ease-in-out mb-10 flex justify-center fixed ${
+            shouldChangeColor
+              ? 'bg-neutral-100/5 dark:bg-secondary/5'
+              : 'bg-white/5'
+          } duration-300 ease-in-out mb-10 flex justify-center fixed ${
             scrollPosition > 0 ? 'backdrop-blur-md' : 'bg-transparent'
           }  w-full z-10`}
         >
           <div
             className={`${
-              shouldChangeColor ? 'text-white' : 'text-black'
-            } duration-300 ease-in-out container pt-2 pb-2`}
+              shouldChangeColor ? 'text-black dark:text-white' : 'text-black'
+            } duration-300 ease-in-out container pt-2 pb-2 flex items-center`}
           >
-            <ul className="flex items-center">
+            <ul className="flex items-center flex-1">
               <li className="text-4xl mr-10 font-serif font-semibold">
                 <NavItem href="/" hasUnderline={false}>
                   M<span className="text-primary">i</span>gz
@@ -45,6 +48,9 @@ export const Layout = ({
                 </NavItem>
               </li>
             </ul>
+            <div className="flex items-center justify-center">
+              <DarkModeButton />
+            </div>
           </div>
         </nav>
       </header>

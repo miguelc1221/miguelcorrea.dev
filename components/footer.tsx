@@ -2,7 +2,7 @@ export const Footer = (): JSX.Element => {
   return (
     <footer>
       <div className="container flex items-center justify-between pb-6 pt-6">
-        <p className="text-slate-200 text-sm">
+        <p className="text-slate-800 dark:text-slate-200 text-sm">
           {`© ${new Date().getFullYear()} Miguel Correa. All Rights Reserved.`}
         </p>
         <div className="flex flex-wrap gap-2">

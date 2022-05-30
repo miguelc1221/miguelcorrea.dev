@@ -14,7 +14,7 @@ export const ProjectItem = ({
   ...props
 }: ProjectItemType): JSX.Element => {
   return (
-    <div className="flex gap-4 flex-col text-center text-slate-200 relative">
+    <div className="flex gap-4 flex-col text-center text-slate-800 dark:text-slate-200 relative">
       <div>
         <Image
           layout="responsive"
