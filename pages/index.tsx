@@ -48,7 +48,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
               rel="noreferrer"
             >
               HelloFresh
-            </a>
+            </a>{' '}
             (America&apos;s #1 meal kit) and{' '}
             <a
               href="https://www.workday.com/"
