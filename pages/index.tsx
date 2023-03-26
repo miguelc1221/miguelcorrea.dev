@@ -5,6 +5,7 @@ import Image from 'next/image'
 import ProfileImg from '../public/images/me.jpg'
 import WcGQLImg from '../public/images/wc-gql.png'
 import CbCli from '../public/images/cbcli.png'
+import musiqRemix from '../public/images/musiq-remix.png'
 import Link from 'next/link'
 
 export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
@@ -67,6 +68,12 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
             Projects
           </h2>
           <div className="projectGrid">
+            <ProjectItem
+              href="https://github.com/miguelc1221/musiq-remix"
+              title="Musiq Remix"
+              subTitle="An Apple Music clone built with Remix"
+              src={musiqRemix}
+            />
             <ProjectItem
               href="https://warcraft-gql.com/"
               title="Warcraft-GQL"
