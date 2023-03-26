@@ -42,11 +42,11 @@ export const Layout = ({
                   M<span className="text-primary">i</span>gz
                 </NavItem>
               </li>
-              <li>
+              {/* <li>
                 <NavItem href="/blog" activeClassName="activeNav">
                   Blog
                 </NavItem>
-              </li>
+              </li> */}
             </ul>
             <div className="flex items-center justify-center">
               <DarkModeButton />

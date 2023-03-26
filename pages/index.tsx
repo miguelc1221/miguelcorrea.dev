@@ -33,42 +33,24 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
           <h2 className="text-black dark:text-white text-4xl underline decoration-primary underline-offset-4 mb-5 ">
             Who am i?
           </h2>
-          <p className="indent-4 text-slate-800 dark:text-slate-200">
-            Hi, my name is Miguel Correa and I am a front-end developer
-            currently working remotely from somewhere in the United States. In
-            2015 I decided to learn how to code after graduating with a degree
-            that I had no plans on using (B.A. Physical Education...😂). That
-            year I fell in love with coding and taught myself enough to help me
-            land my first job at a startup in the California Bay Area. I have
-            since worked for companies such as{' '}
-            <a
-              href="https://www.hellofresh.com/"
-              className="text-black dark:text-white font-semibold"
-              target="_blank"
-              rel="noreferrer"
-            >
-              HelloFresh
-            </a>{' '}
-            (America&apos;s #1 meal kit) and{' '}
-            <a
-              href="https://www.workday.com/"
-              className="text-black dark:text-white font-semibold"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Workday
-            </a>{' '}
-            (one of the leading provider of enterprise cloud applications for
-            finance, HR, and planning).
+          <p className="indent-4 text-slate-800 dark:text-slate-200 mb-4">
+            Hi, my name is Miguel and I am a frontend developer with a passion
+            for creating beautiful and functional user experiences. Despite not
+            having a formal education in the field, I am proud to say that I am
+            self-taught, and have put in countless hours of practice and
+            dedication to get to where I am today. Currently, I am working at
+            Microsoft where I have the opportunity to work on exciting projects
+            and collaborate with talented individuals. Prior to my current role,
+            I have worked for companies such as HelloFresh and Workday, where I
+            gained invaluable experience and further honed my skills as a
+            developer. I am always eager to learn and stay up-to-date with the
+            latest trends in the industry to ensure that I am delivering
+            high-quality work that exceeds expectations. I also have a big
+            interest in design and am working on improving this skill set. Join
+            me on this journey as I continue to push the boundaries of frontend
+            development.
           </p>
 
-          <p className="indent-4 text-slate-800 dark:text-slate-200 mb-4">
-            On my spare time I am an avid collector of sixth scale comic
-            figures, casual gamer and basketball fanatic. I also enjoy tinkering
-            on side projects for the purpose of trying out new frameworks as
-            well as improving my skills. Currently I have a big interest in
-            design and am working on improving this skill set.
-          </p>
           <div className="text-center">
             <a
               href={'/miguel_correa_resume.pdf'}
