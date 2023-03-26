@@ -69,7 +69,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
           </h2>
           <div className="projectGrid">
             <ProjectItem
-              href="https://github.com/miguelc1221/musiq-remix"
+              href="https://musiq-remix.vercel.app/"
               title="Musiq Remix"
               subTitle="An Apple Music clone built with Remix"
               src={musiqRemix}
