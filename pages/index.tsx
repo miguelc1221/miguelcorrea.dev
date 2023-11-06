@@ -54,7 +54,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
 
           <div className="text-center">
             <a
-              href={'/miguel_correa_resume.pdf'}
+              href={'/miguel_correa_resume_x2.pdf'}
               rel="noopener noreferrer"
               target="_blank"
             >
