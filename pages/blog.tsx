@@ -1,4 +1,6 @@
-export default function Blog(): JSX.Element {
+import React from 'react'
+
+export default function Blog(): React.JSX.Element {
   return (
     <>
       <div className="container">

@@ -1,23 +1,41 @@
-import React, { useRef, Children, isValidElement, cloneElement } from 'react'
+import type React from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { Footer } from './footer'
 import { NavItem } from './navItem'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { DarkModeButton } from './darkModeButton'
-import HomePage from '../pages/index'
 
 export const Layout = ({
   children,
 }: {
   children: React.ReactNode
-}): JSX.Element => {
+}): React.JSX.Element => {
   const router = useRouter()
   const scrollPosition = useScrollPosition()
-  const sectionWrapperRef = useRef<HTMLDivElement>(null)
-  const firstSectionOffsetTop = sectionWrapperRef.current?.offsetTop
-  const passedOffset =
-    firstSectionOffsetTop && scrollPosition >= firstSectionOffsetTop - 50
-  const shouldChangeColor = passedOffset || router.route !== '/'
+  const isHome = router.route === '/'
+  const [passedHero, setPassedHero] = useState(false)
+
+  useEffect(() => {
+    if (!isHome) {
+      return
+    }
+
+    const hero = document.querySelector('.heroBackground')
+    if (!hero) {
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPassedHero(!entry.isIntersecting),
+      { rootMargin: '-50px 0px 0px 0px' }
+    )
+
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [isHome])
+
+  const shouldChangeColor = !isHome || passedHero
 
   return (
     <>
@@ -55,17 +73,8 @@ export const Layout = ({
         </nav>
       </header>
 
-      <main className="text-white pt-[63px] pb-10 min-h-[calc(100vh_-_87px)]">
-        {Children.map(children, (child) => {
-          if (isValidElement(child)) {
-            if (child.type === HomePage) {
-              return cloneElement(child, { ref: sectionWrapperRef })
-            }
-
-            return child
-          }
-          return child
-        })}
+      <main className="text-white pt-[63px] pb-10 min-h-[calc(100vh-87px)]">
+        {children}
       </main>
 
       <Footer />

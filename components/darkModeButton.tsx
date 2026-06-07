@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
-export const DarkModeButton = (): JSX.Element => {
-  const [isDarkMode, setDarkMode] = useState<boolean>(true)
-
-  useEffect(() => {
-    setDarkMode(document.documentElement.classList.contains('dark'))
-  }, [])
+export const DarkModeButton = (): React.JSX.Element => {
+  const [isDarkMode, setDarkMode] = useState<boolean>(() =>
+    typeof document !== 'undefined'
+      ? document.documentElement.classList.contains('dark')
+      : true
+  )
 
   const toggleDarkMode = () => {
     const darkmode = !isDarkMode

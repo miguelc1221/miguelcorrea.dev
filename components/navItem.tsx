@@ -13,18 +13,18 @@ export const NavItem = ({
   children: React.ReactNode
   hasUnderline?: boolean
   activeClassName?: string
-} & LinkProps): JSX.Element => {
+} & LinkProps): React.JSX.Element => {
   const router = useRouter()
 
   return (
-    <Link href={href} {...props}>
-      <a
-        className={`${router.pathname == href ? activeClassName : ''} ${
-          hasUnderline && 'underlined'
-        }`}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={`${router.pathname == href ? activeClassName : ''} ${
+        hasUnderline && 'underlined'
+      }`}
+      {...props}
+    >
+      {children}
     </Link>
   )
 }

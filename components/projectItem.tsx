@@ -1,3 +1,4 @@
+import type React from 'react'
 import Image from 'next/image'
 import type { ImageProps } from 'next/image'
 
@@ -11,17 +12,17 @@ export const ProjectItem = ({
   href,
   title,
   subTitle,
+  alt,
   ...props
-}: ProjectItemType): JSX.Element => {
+}: ProjectItemType): React.JSX.Element => {
   return (
     <div className="flex gap-4 flex-col text-center text-slate-800 dark:text-slate-200 relative">
       <div>
         <Image
-          layout="responsive"
-          className="rounded-lg"
-          width={16}
-          height={10}
-          alt=""
+          className="rounded-lg w-full h-auto"
+          width={1600}
+          height={1000}
+          alt={alt}
           {...props}
         />
       </div>

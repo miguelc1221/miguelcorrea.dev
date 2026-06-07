@@ -1,7 +1,9 @@
+import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 class MyDocument extends Document {
-  render(): JSX.Element {
+  render(): React.JSX.Element {
     return (
       <Html lang="en" className="text-lg font-light">
         <Head>
@@ -13,6 +15,7 @@ class MyDocument extends Document {
         </Head>
         <body className="bg-neutral-100 dark:bg-secondary transition ease-in-out duration-300">
           <Main />
+          <Script src="/scripts/darkMode.js" strategy="beforeInteractive" />
           <NextScript />
         </body>
       </Html>

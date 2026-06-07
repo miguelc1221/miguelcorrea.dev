@@ -1,4 +1,6 @@
-export const Footer = (): JSX.Element => {
+import React from 'react'
+
+export const Footer = (): React.JSX.Element => {
   return (
     <footer>
       <div className="container flex flex-col-reverse gap-5 md:flex-row md:gap-0 items-center justify-between pb-6 pt-6">

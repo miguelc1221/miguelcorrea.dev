@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import React from 'react'
 import { ProjectItem } from '../components/projectItem'
 import { Button } from '../components/button'
 import Image from 'next/image'
@@ -6,9 +6,7 @@ import ProfileImg from '../public/images/me.jpg'
 import WcGQLImg from '../public/images/wc-gql.png'
 import CbCli from '../public/images/cbcli.png'
 import musiqRemix from '../public/images/musiq-remix.png'
-import Link from 'next/link'
-
-export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
+export default function Home(): React.JSX.Element {
   return (
     <>
       <div className="-mt-[63px] pb-10 pt-[103px] w-full heroBackground">
@@ -19,9 +17,15 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
               I am <span className="text-primary">Miguel</span>
             </h1>
             <p className="mb-5">Front-end developer and aspiring designer</p>
-            <Link href="#projects" passHref>
-              <Button>See my work</Button>
-            </Link>
+            <Button
+              onClick={() =>
+                document
+                  .getElementById('projects')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              See my work
+            </Button>
           </div>
           <div className="profileImgSm md.5:profileImg">
             <Image src={ProfileImg} alt="Picture of the author" />
@@ -29,7 +33,7 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
         </div>
       </div>
 
-      <div className="container pt-24 flex flex-col gap-10" ref={ref}>
+      <div className="container pt-24 flex flex-col gap-10">
         <section>
           <h2 className="text-black dark:text-white text-4xl underline decoration-primary underline-offset-4 mb-5 ">
             Who am i?
@@ -73,22 +77,25 @@ export default forwardRef<HTMLDivElement>(function Home(_, ref): JSX.Element {
               title="Musiq Remix"
               subTitle="An Apple Music clone built with Remix"
               src={musiqRemix}
+              alt="Musiq Remix project screenshot"
             />
             <ProjectItem
               href="https://warcraft-gql.com/"
               title="Warcraft-GQL"
               subTitle="GraphQL API for World of Warcraft"
               src={WcGQLImg}
+              alt="Warcraft-GQL project screenshot"
             />
             <ProjectItem
               href="https://github.com/miguelc1221/comicbook-cli"
               title="ComicBook CLI"
               subTitle="A CLI tool to display the latest comic book releases."
               src={CbCli}
+              alt="ComicBook CLI project screenshot"
             />
           </div>
         </section>
       </div>
     </>
   )
-})
+}
