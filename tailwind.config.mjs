@@ -2,7 +2,6 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -10,20 +9,33 @@ const config = {
   theme: {
     extend: {
       colors: {
-        primary: '#01949A',
-        secondary: '#393947',
+        navy:    '#0A192F',
+        'navy-1':'#112240',
+        'navy-2':'#1D3461',
+        'navy-3':'#233554',
+        teal:    '#64FFDA',
+        'teal-dim': 'rgba(100,255,218,0.1)',
+        slate:   '#9AA6C3',
+        'slate-light': '#B8C2E6',
+        white:   '#DDE7FF',
+        /* legacy aliases */
+        primary: '#64FFDA',
+        secondary: '#0A192F',
+        surface: '#112240',
+        canvas:  '#0A192F',
+        ink:     '#CCD6F6',
+        'ink-2': '#A8B2D8',
+        'ink-3': '#8892B0',
+        accent:  '#64FFDA',
+        paper:   '#CCD6F6',
         amaranth: '#DB1F48',
-        'amaranth-2': '#C51B40',
       },
       fontFamily: {
-        sans: ['Josefin Sans', ...defaultTheme.fontFamily.sans],
-        serif: ['Amatic SC', ...defaultTheme.fontFamily.serif],
+        sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        mono: ['SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', ...defaultTheme.fontFamily.mono],
       },
-      screens: {
-        'md.5': '865px',
-      },
-      spacing: {
-        14.849: '3.5rem',
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
       },
     },
   },
